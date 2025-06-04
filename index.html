@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSociety Toolkit</title>
+    <style>
+        :root {
+            --azul: #0066cc;
+            --azul-escuro: #003366;
+            --preto: #0d0d0d;
+            --cinza: #1a1a1a;
+            --branco: #f2f2f2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--preto);
+            color: var(--branco);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--preto);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--azul);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            color: var(--azul);
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .logo p {
+            color: var(--branco);
+            font-size: 1rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--azul);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--azul);
+        }
+        
+        section {
+            padding: 50px 0;
+        }
+        
+        h2 {
+            color: var(--azul);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 300;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 70%;
+            width: 4px;
+            background-color: var(--azul);
+        }
+        
+        .card {
+            background-color: var(--cinza);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .code-block {
+            background-color: var(--preto);
+            border-left: 3px solid var(--azul);
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--branco);
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--azul);
+            color: var(--branco);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--azul-escuro);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            background-color: var(--cinza);
+            padding: 20px;
+            border-radius: 6px;
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature h3 {
+            color: var(--azul);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--preto);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--azul);
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>FSociety Toolkit</h1>
+                <p>Ferramentas avançadas para análise de segurança</p>
+            </div>
+            
+            <nav>
+                <a href="#install">Instalação</a>
+                <a href="#features">Recursos</a>
+                <a href="#usage">Como Usar</a>
+                <a href="#tools">Ferramentas</a>
+                <a href="https://github.com/cyberdithteam/fsociety-date" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="install">
+            <h2>Instalação no Termux</h2>
+            
+            <div class="card">
+                <p>Siga estes passos para instalar o FSociety Toolkit no Termux:</p>
+                
+                <div class="code-block">
+                    pkg update -y && pkg upgrade -y<br>
+                    pkg install -y git wget python<br>
+                    wget https://raw.githubusercontent.com/cyberdithteam/fsociety-date/main/fsociety.sh<br>
+                    chmod +x fsociety.sh<br>
+                    ./fsociety.sh
+                </div>
+                
+                <p>Para instalação completa com todas as ferramentas:</p>
+                <div class="code-block">
+                    ./fsociety.sh --install-all
+                </div>
+            </div>
+        </section>
+        
+        <section id="features">
+            <h2>Principais Recursos</h2>
+            
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Scanner de Rede</h3>
+                    <p>Identificação de dispositivos e análise de vulnerabilidades em redes.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Ferramentas OSINT</h3>
+                    <p>Coleta de informações públicas para análise de dados.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Testes de Segurança</h3>
+                    <p>Verificação de vulnerabilidades em sistemas e aplicações.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Interface Simplificada</h3>
+                    <p>Menu interativo fácil de usar, mesmo para iniciantes.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="usage">
+            <h2>Como Usar</h2>
+            
+            <div class="card">
+                <h3>Menu Principal</h3>
+                <p>O toolkit oferece um sistema de menu numérico intuitivo:</p>
+                
+                <div class="code-block">
+                    1. Scanner de Rede<br>
+                    2. Ferramentas de Análise<br>
+                    3. Ferramentas OSINT<br>
+                    4. Testes de Segurança<br>
+                    5. Configurações<br>
+                    6. Sair
+                </div>
+                
+                <h3 style="margin-top: 20px;">Exemplo: Verificação de Portas</h3>
+                <div class="code-block">
+                    1. Selecione "Scanner de Rede"<br>
+                    2. Escolha "Verificação de Portas"<br>
+                    3. Digite o endereço IP<br>
+                    4. Aguarde os resultados
+                </div>
+                
+                <a href="#" class="btn">Guia Completo (PDF)</a>
+            </div>
+        </section>
+        
+        <section id="tools">
+            <h2>Ferramentas Incluídas</h2>
+            
+            <div class="card">
+                <h3>Análise de Rede</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Nmap - Scanner de rede</li>
+                    <li>Netcat - Ferramenta de rede</li>
+                    <li>TShark - Análise de pacotes</li>
+                </ul>
+                
+                <h3>OSINT</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>PhoneInfoga - Análise de números</li>
+                    <li>Sherlock - Busca por usuários</li>
+                    <li>ExifTool - Metadados</li>
+                </ul>
+                
+                <h3>Segurança</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Nikto - Scanner web</li>
+                    <li>Lynis - Auditoria</li>
+                    <li>John - Teste de senhas</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>FSociety Toolkit - Projeto open source para fins educacionais</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">© 2023 CyberDith Team. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
